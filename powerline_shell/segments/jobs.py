@@ -15,7 +15,7 @@ class Segment(ThreadedSegment):
         self.num_jobs = 0
         if platform.system().startswith('CYGWIN') or \
             platform.system().startswith('MSYS') or \
-            (platform.system() == 'Windows' and '\\usr\\bin\ps' in (which('ps') or '')):
+            (platform.system() == 'Windows' and '\\usr\\bin\\ps' in (which('ps') or '')):
             # cygwin ps (and msys) is a special snowflake...
             output_proc = subprocess.Popen(['ps', '-af'], stdout=subprocess.PIPE)
             output = map(lambda l: int(l.split()[2].strip()),
